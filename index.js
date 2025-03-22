@@ -76,5 +76,5 @@ document.body.onscroll = function () {
 }
 
 top.onclick = function () {
-    window.scroll({ right: 0, top: 0, behavior: "smooth" });
+    window.scroll({ right: 0, top: 0, behavior: "smooth" } );
 }
