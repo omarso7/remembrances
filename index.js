@@ -5,6 +5,7 @@ let icon = document.querySelectorAll('i');
 let btns = document.querySelectorAll('span');
 let day = document.querySelector('.d');
 let night = document.querySelector('.n');
+let arrow = document.querySelector('.top');
 
 for (let i = 0; i < display.length; i++){
     display[i].onclick = function () {
@@ -65,3 +66,15 @@ btns.forEach(function (e) {
     }
 })
 
+document.body.onscroll = function () {
+    if (window.scrollY > 200) {
+        arrow.style.opacity = '1';
+    }
+    else {
+        arrow.style.opacity = "0";
+    }
+}
+
+top.onclick = function () {
+    window.scroll({ right: 0, top: 0, behavior: "smooth" });
+}
