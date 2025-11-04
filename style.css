@@ -9,6 +9,7 @@
 :root {
     --page-background: bisque;
     --counter-background:#5D866C;
+    --font-color: black;
 }
 * {
     margin: 0;
@@ -17,6 +18,8 @@
 }
 body {
     background-color: var(--page-background);
+    transition:background-color 0.3s;
+    /* --counter-background: white; */
 }
 header {
     width: 100%;
@@ -37,10 +40,22 @@ header .list-btn {
     width: fit-content;
     cursor: pointer;
 }
+.head {
+    position: relative;
+}
+.head i {
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    color: var(--font-color);
+    transition: color 0.3s, rotate 0.6s;
+}
+
 header .list-btn div {
     width: 40px;
     height: 5px;
-    background-color: black;
+    background-color: var(--font-color);
     border-radius: 10px;
 }
 header ul {
@@ -56,6 +71,7 @@ header li {
     font-size: 30px;
     text-align: center;
     cursor: pointer;
+    color: var(--font-color);
 }
 
 .box {
@@ -71,6 +87,8 @@ p {
     font-size: 25px;
     word-spacing: 2px;
     line-height: 30px;
+    color: var(--font-color);
+    transition: color 0.3s;
 }
 .display {
     margin: 30px auto 0;
@@ -91,7 +109,7 @@ p {
     font-family: 'numbers';
     opacity: 0.7;
 }
-i {
+i:not(i:first-of-type) {
     font-size: 20px;
     position: absolute;
     bottom: 10px;

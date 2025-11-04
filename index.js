@@ -127,7 +127,7 @@ timeBtns.forEach(function (e,i) {
 })
 
 let numBtn = document.querySelectorAll('div.num');
-let deleteBtn = document.querySelectorAll('i');
+let deleteBtn = document.querySelectorAll("i.fa-repeat");
 numBtn.forEach(function (e,i) {
     e.onclick = function () {
         e.innerText =+e.innerText + 1;
@@ -138,3 +138,34 @@ deleteBtn.forEach(function (e,i) {
         numBtn[i].innerText = 0;
     }
 })
+let dayAndNight = document.querySelector('.head i');
+let day = true;
+if (window.localStorage.getItem('theme')) {
+    day = window.localStorage.getItem('theme');
+    if (window.localStorage.getItem('theme') == 'false') {
+        dayAndNight.className = "fa-solid fa-moon";
+        document.body.style.cssText =
+          "--counter-background: #31363F; --page-background: #222831;  --font-color: white;";
+    }
+}
+
+console.log(day)
+dayAndNight.onclick = function () {
+    day = window.localStorage.getItem("theme");
+    if (day == 'true') {
+        window.localStorage.setItem("theme", false);
+        dayAndNight.style.rotate = '360deg';
+        dayAndNight.className = 'fa-solid fa-moon';
+        document.body.style.cssText =
+          "--counter-background: #31363F; --page-background: #222831;  --font-color: white;";
+        }
+        else {
+            window.localStorage.setItem("theme", true);
+            dayAndNight.style.rotate = '180deg';
+            dayAndNight.className = "fa-solid fa-sun";
+            document.body.style.cssText =
+                "--counter-background: #5D866C; --page-background: bisque;  --font-color: black;";
+            // document.body.style.cssText =
+            //     "--counter-background: #31363F; --page-background: #222831;  --font-color: white;";
+    }
+};
