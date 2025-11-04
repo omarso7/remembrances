@@ -139,7 +139,7 @@ deleteBtn.forEach(function (e,i) {
     }
 })
 let dayAndNight = document.querySelector('.head i');
-let day = true;
+let day = 'true';
 if (window.localStorage.getItem('theme')) {
     day = window.localStorage.getItem('theme');
     if (window.localStorage.getItem('theme') == 'false') {
@@ -151,7 +151,9 @@ if (window.localStorage.getItem('theme')) {
 
 console.log(day)
 dayAndNight.onclick = function () {
-    day = window.localStorage.getItem("theme");
+    if (window.localStorage.getItem("theme")) {
+        day = window.localStorage.getItem("theme");
+    }
     if (day == 'true') {
         window.localStorage.setItem("theme", false);
         dayAndNight.style.rotate = '360deg';
