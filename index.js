@@ -109,8 +109,22 @@ function all(time, numbers) {
 }
 
 all(nightZekr, dnZekrMain);
-
+let numBtn = document.querySelectorAll('div.num');
 let timeBtns = document.querySelectorAll('ul li');
+let deleteBtn = document.querySelectorAll("i.fa-repeat");
+function clicking() {
+    numBtn.forEach(function (e,i) {
+        e.onclick = function () {
+            e.innerText =+e.innerText + 1;
+        }
+    })
+    deleteBtn.forEach(function (e,i) {
+        e.onclick = function () {
+            numBtn[i].innerText = 0;
+        }
+    })
+}
+clicking();
 timeBtns.forEach(function (e,i) {
     e.onclick = function () {
         if (i == 0) {
@@ -123,21 +137,15 @@ timeBtns.forEach(function (e,i) {
             all(sleepZekr, sleepZekrMain);
         }
         headerHide();
+        numBtn = document.querySelectorAll('div.num');
+        deleteBtn = document.querySelectorAll("i.fa-repeat");
+        clicking();
     }
 })
 
-let numBtn = document.querySelectorAll('div.num');
-let deleteBtn = document.querySelectorAll("i.fa-repeat");
-numBtn.forEach(function (e,i) {
-    e.onclick = function () {
-        e.innerText =+e.innerText + 1;
-    }
-})
-deleteBtn.forEach(function (e,i) {
-    e.onclick = function () {
-        numBtn[i].innerText = 0;
-    }
-})
+
+
+
 let dayAndNight = document.querySelector('.head i');
 let day = 'true';
 if (window.localStorage.getItem('theme')) {
