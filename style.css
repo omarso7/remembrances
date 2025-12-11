@@ -113,4 +113,5 @@ i:not(i:first-of-type) {
     font-size: 20px;
     position: absolute;
     bottom: 10px;
+    z-index: 2;
 }

@@ -109,18 +109,19 @@ function all(time, numbers) {
 }
 
 all(nightZekr, dnZekrMain);
+displayBtn = document.querySelectorAll("div.display");
 let numBtn = document.querySelectorAll('div.num');
 let timeBtns = document.querySelectorAll('ul li');
 let deleteBtn = document.querySelectorAll("i.fa-repeat");
 function clicking() {
-    numBtn.forEach(function (e,i) {
+    displayBtn.forEach(function (e, i) {
         e.onclick = function () {
-            e.innerText =+e.innerText + 1;
+            numBtn[i].innerText = +numBtn[i].innerText + 1;
         }
     })
     deleteBtn.forEach(function (e,i) {
         e.onclick = function () {
-            numBtn[i].innerText = 0;
+            numBtn[i].innerText = -1;
         }
     })
 }
@@ -137,7 +138,8 @@ timeBtns.forEach(function (e,i) {
             all(sleepZekr, sleepZekrMain);
         }
         headerHide();
-        numBtn = document.querySelectorAll('div.num');
+        numBtn = document.querySelectorAll("div.num");
+        displayBtn = document.querySelectorAll('div.display');
         deleteBtn = document.querySelectorAll("i.fa-repeat");
         clicking();
     }
